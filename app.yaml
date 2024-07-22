@@ -1,0 +1,14 @@
+runtime: nodejs
+env: flex
+service: purina-web-bot
+
+resources:
+  cpu: 16 # Number of CPUs
+  memory_gb: 64 # Amount of memory in GB, optimized for your needs
+  disk_size_gb: 100 # Disk size in GB
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 10
+  cpu_utilization:
+    target_utilization: 0.65
