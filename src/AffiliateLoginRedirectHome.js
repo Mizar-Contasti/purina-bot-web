@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import facebookIcon from './assets/facebook-icon.svg';
-import googleIcon from './assets/google-icon.svg';
+import React, { useState } from "react";
+import facebookIcon from "./assets/facebook-icon.svg";
+import googleIcon from "./assets/google-icon.svg";
 
 const AffiliateLoginRedirectHome = () => {
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <div className="login__wrapper">
@@ -13,7 +13,7 @@ const AffiliateLoginRedirectHome = () => {
         <input
           type="text"
           name="username"
-          placeholder='Email'
+          placeholder="Email"
           id="username"
           className="input"
           value={userName}
@@ -22,17 +22,27 @@ const AffiliateLoginRedirectHome = () => {
         <input
           type="password"
           name="password"
-          placeholder='Password'
+          placeholder="Password"
           id="password"
           className="input"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <a href="https://purina-chatbot-poc-dev-covlventtq-uc.a.run.app" className="button button__primary btn__w-100">Log In</a>
+        <a href="/" className="button button__primary btn__w-100">
+          Log In
+        </a>
         <a href="/affiliate-login">Forgot Password?</a>
-        <p className="line__through"><span>or log in with</span></p>
-        <a href="https://purina-chatbot-poc-dev-covlventtq-uc.a.run.app" className="btn btn__facebook btn__w-100"><img src={facebookIcon} alt="facebook icon"></img><span className="text">Facebook</span></a>
-        <a href="https://purina-chatbot-poc-dev-covlventtq-uc.a.run.app" className="btn btn__google btn__w-100"><img src={googleIcon} alt="google icon"></img><span className="text">Google</span></a>
+        <p className="line__through">
+          <span>or log in with</span>
+        </p>
+        <a href="/" className="btn btn__facebook btn__w-100">
+          <img src={facebookIcon} alt="facebook icon"></img>
+          <span className="text">Facebook</span>
+        </a>
+        <a href="/" className="btn btn__google btn__w-100">
+          <img src={googleIcon} alt="google icon"></img>
+          <span className="text">Google</span>
+        </a>
       </div>
     </div>
   );

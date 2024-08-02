@@ -2,6 +2,9 @@ runtime: nodejs
 env: flex
 service: purina-web-bot
 
+runtime_config:
+  operating_system: "ubuntu22"
+
 resources:
   cpu: 16 # Number of CPUs
   memory_gb: 64 # Amount of memory in GB, optimized for your needs
