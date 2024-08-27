@@ -1,6 +1,6 @@
 runtime: nodejs
 env: flex
-service: purina-web-bot
+service: nerdery-web-bot
 
 runtime_config:
   operating_system: "ubuntu22"

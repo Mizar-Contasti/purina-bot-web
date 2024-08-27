@@ -1,14 +1,6 @@
 import React, { useEffect } from "react";
 import Home from "./Home";
-import AffiliateLogin from "./AffiliateLogin";
-import AffiliateLoginRedirectHome from "./AffiliateLoginRedirectHome";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
-
-import Dog from "./Dog";
-
-// fonts
-import "./fonts/Nexa/NexaRegular.otf";
 
 function App() {
   useEffect(() => {
@@ -40,17 +32,56 @@ function App() {
 
     // Insertar el HTML del chatbot
     const dfMessenger = document.createElement("df-messenger");
-    dfMessenger.setAttribute("project-id", "nerdery-tech-petfinder-poc");
+    dfMessenger.setAttribute(
+      "chat-icon",
+      "https://codexceleste.com/chatbotsOld/core/images/zaroc1.png"
+    );
+
+    dfMessenger.setAttribute(
+      "chat-title-icon",
+      "https://codexceleste.com/chatbotsOld/core/images/zaroc1.png"
+    );
+    dfMessenger.setAttribute("project-id", "nerdery-te-calendar-chatbot");
+
     dfMessenger.setAttribute(
       "agent-id",
-      "0e94fe28-a594-4488-8a59-fe39f6a93ff8"
+      "5786a843-36d2-4a7c-bdb6-cce06eaab0ed"
     );
+    dfMessenger.setAttribute("storage-option", "none");
     dfMessenger.setAttribute("language-code", "en");
     dfMessenger.setAttribute("max-query-length", "-1");
+    dfMessenger.setAttribute("intent", "WELCOME");
+    // dfMessenger.setAttribute("chat-title", "N");
 
-    const chatBubble = document.createElement("df-messenger-chat-bubble");
-    chatBubble.setAttribute("chat-title", "Dogs Room");
+    const dfMessengerChat = document.createElement("df-messenger-chat");
+
+    dfMessengerChat.setAttribute("chat-title", "Emmett");
+    dfMessengerChat.setAttribute("chat-subtitle", "Nerdery Chatbot");
+
+    dfMessengerChat.setAttribute(
+      "chat-title-icon",
+      "https://www.nerdery.com/wp-content/uploads/2024/08/N-icon.png"
+    );
+
+    dfMessengerChat.setAttribute(
+      "bot-actor-image",
+      "https://www.nerdery.com/wp-content/uploads/2024/02/Nerdery-Featured-Image.png"
+    );
+
+    dfMessengerChat.setAttribute(
+      "user-actor-image",
+      "https://www.nerdery.com/wp-content/uploads/2024/02/Nerdery-Featured-Image.png"
+    );
+
+    // dfMessengerChat.setAttribute("bot-writing-image", "Thinking");
+
+    // https://www.nerdery.com/wp-content/uploads/2024/02/Nerdery-Featured-Image.png
+
+    const chatBubble = document.createElement("df-messenger-chat-bubble"); // sets icon on the bubble
+    // chatBubble.setAttribute("chat-title", "N");
+
     dfMessenger.appendChild(chatBubble);
+    dfMessenger.appendChild(dfMessengerChat);
 
     document.body.appendChild(dfMessenger);
 
@@ -60,15 +91,44 @@ function App() {
       df-messenger {
         z-index: 999;
         position: fixed;
-        --df-messenger-font-color: #000;
-        --df-messenger-font-family: Google Sans;
-        --df-messenger-chat-background: #f3f6fc;
-        --df-messenger-message-user-background: #d3e3fd;
-        --df-messenger-message-bot-background: #fff;
         bottom: 16px;
         right: 16px;
+        --df-messenger-font-color: #252728;
+        --df-messenger-font-family: Google Sans;
+
+        --df-messenger-default-font-family: Google Sans;
+
+        --df-messenger-primary-color: #252728;
+
+        --df-messenger-titlebar-background: #FFC836;
+        --df-messenger-titlebar-font-color:  #252728;
+        --df-messenger-titlebar-icon-font-color:  #252728;
+      
+        
+        --df-messenger-chat-bubble-icon-color: #252728;
+        --df-messenger-chat-bubble-background: #FFC836;
+        --df-messenger-chat-bubble-border-radius: 32px;
+        --df-messenger-chat-bubble-border: 5px solid #FFF6E9;
+
+        --df-messenger-chat-background: #F1F1F1;
+
+        --df-messenger-message-bot-background: #FFC836;
+        --df-messenger-message-user-background: #ffebb5;
+
+        --df-messenger-chat-scroll-button-background: #FFC836;
+        --df-messenger-chat-scroll-button-font-color: #252728;
+
+        --df-messenger-chat-border:0px solid #252728;
+
+        --df-messenger-messagelist-border: 0px solid #252728;
+
       }
     `;
+
+    // --df-messenger-chat-border-radius: 10px;
+    // --df-messenger-message-border: 5px;
+    // --df-messenger-message-bot-border: 5px;
+
     document.head.appendChild(style);
 
     // Cleanup
@@ -84,12 +144,6 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/affiliate-login" element={<AffiliateLogin />}></Route>
-        <Route
-          path="/affiliate-login2"
-          element={<AffiliateLoginRedirectHome />}
-        ></Route>
-        <Route path="/dog/:id/de/:city/:rescue" element={<Dog />} />
       </Routes>
     </BrowserRouter>
   );
